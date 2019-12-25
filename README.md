@@ -1,21 +1,21 @@
 # vue-cil3.0 模板
 
-## Project setup
+## 项目初始化
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 启动开发环境
 ```
-npm run serve
+npm run dev
 ```
 
-### Compiles and minifies for production
+### 项目打包上线
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Lints和fixes文件
 ```
 npm run lint
 ```
