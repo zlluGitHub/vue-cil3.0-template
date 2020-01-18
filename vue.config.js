@@ -9,7 +9,8 @@ module.exports = {
   //     .end()
   // },
   
-  // publicPath: './', // publicPath:'rm',, // 根域上下文目录
+  // 根域上下文目录
+  // publicPath: './', // publicPath:'rm', 这里可以设置二级文件夹作为主页面
 
   // build时构建文件的目录 构建时传入 --no-clean 可关闭该行为
   // outputDir: 'build',
