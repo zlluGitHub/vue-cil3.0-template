@@ -1,4 +1,11 @@
 module.exports = {
+  chainWebpack: config => {
+    if (process.env.use_analyzer) {     // 分析
+      config
+        .plugin('webpack-bundle-analyzer')
+        .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+    }
+  },
   // chainWebpack: config => {
   //   // ie报错无效字符 添加该配置项 解决该问题
   //   config.module
@@ -8,7 +15,7 @@ module.exports = {
   //     .loader('babel-loader')
   //     .end()
   // },
-  
+
   // 根域上下文目录
   // publicPath: './', // publicPath:'rm', 这里可以设置二级文件夹作为主页面
 
@@ -21,7 +28,7 @@ module.exports = {
 
   // 指定生成的 index.html 的输出路径 (相对于 outputDir)。也可以是一个绝对路径。
   // indexPath: 'index.html',
-  
+
   devServer: {
     port: 80,
     // sockHost: 'http://127.0.0.0',
