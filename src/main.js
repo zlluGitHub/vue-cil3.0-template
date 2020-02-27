@@ -13,6 +13,9 @@ Vue.use(iView);
 import echarts from 'echarts'
 Vue.prototype.$echarts = echarts;
 
+import event from './utils/event'
+Vue.prototype.$event = event
+
 //引入axios
 // import apiConfig from '../config/api.config.js'
 import axios from 'axios'
@@ -29,8 +32,11 @@ Vue.prototype.$mock = mock
 Vue.config.productionTip = false
 
 //实例化 store
-import store from './store'
+import store from './store' // this.$store.commit("setUser", user); 
+
+//引入路由文件
 import router from './router'
+//// 路由拦截
 // const whiteList = ['/task'];//不需要登录能访问的path
 // router.beforeEach((to, from, next) => {
 //   console.log('beforeEach');
