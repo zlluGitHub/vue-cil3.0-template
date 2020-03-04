@@ -19,4 +19,6 @@ npm run build
 ```
 npm run lint
 ```
+### 补充说明
+如若开启 eslint 代码校验要在 package.json 下的 extends 字段中添加 "eslint:recommended" 即可。
 
