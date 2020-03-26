@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import 'font-awesome/css/font-awesome.css'
+// import 'font-awesome/css/font-awesome.css'
 
 //引入 iview
 import iView from 'view-design';
@@ -10,8 +10,8 @@ Vue.use(iView);
 
 
 // 引入echarts
-import echarts from 'echarts'
-Vue.prototype.$echarts = echarts;
+// import echarts from 'echarts'
+// Vue.prototype.$echarts = echarts;
 
 import event from './utils/event'
 Vue.prototype.$event = event
@@ -26,8 +26,8 @@ Vue.prototype.$axios = axios    //全局注册，使用方法为:this.$axios
 Vue.prototype.$qs = qs           //全局注册，使用方法为:this.$qs
 
 //全局引入模拟数据
-import mock from './mock'
-Vue.prototype.$mock = mock  
+// import mock from './mock'
+// Vue.prototype.$mock = mock
 
 Vue.config.productionTip = false
 
