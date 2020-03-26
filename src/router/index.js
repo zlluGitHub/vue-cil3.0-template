@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Section from '../components/content/Section.vue';
 
 Vue.use(Router)
 
@@ -11,7 +10,7 @@ export default new Router({
     {
       path: '/',
       name: 'Section',
-      component: Section
+      component: () => import('../components/content/Section.vue')
     },
     // {
     //   path: '/second',
