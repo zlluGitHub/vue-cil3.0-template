@@ -1,13 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-// import 'font-awesome/css/font-awesome.css'
+import 'font-awesome/css/font-awesome.css'
 
 //引入 iview
 import iView from 'view-design';
 import 'view-design/dist/styles/iview.css';
 Vue.use(iView);
-
 
 // 引入echarts
 // import echarts from 'echarts'
@@ -17,9 +16,9 @@ import event from './utils/event'
 Vue.prototype.$event = event
 
 //引入axios
-// import apiConfig from '../config/api.config.js'
 import axios from 'axios'
 import qs from 'qs'
+// axios.defaults.withCredentials = true;//让ajax携带cookie
 axios.defaults.baseURL = process.env.VUE_APP_URL;
 Vue.prototype.$url = process.env.VUE_APP_URL;
 Vue.prototype.$axios = axios    //全局注册，使用方法为:this.$axios

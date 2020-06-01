@@ -12,6 +12,11 @@ export default new Router({
       name: 'Section',
       component: () => import('../components/content/Section.vue')
     },
+    {
+      path: '/v_module',
+      name: 'v_module',
+      component: () => import('../components/v_module/index.vue')
+    },
     // {
     //   path: '/second',
     //   name: 'secondIndex',
