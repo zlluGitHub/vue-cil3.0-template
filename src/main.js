@@ -9,6 +9,7 @@ import iView from 'view-design';
 import 'view-design/dist/styles/iview.css';
 Vue.use(iView);
 
+import './assets/style/theme_1.scss'
 // 引入echarts
 // import echarts from 'echarts'
 // Vue.prototype.$echarts = echarts;

@@ -1,12 +1,10 @@
 <template>
-  <header>
-    header
-  </header>
+  <aside>aside</aside>
 </template>
 
 <script>
 export default {
-  name: "headers",
+  name: "aside",
   props: {
     msg: String
   }
