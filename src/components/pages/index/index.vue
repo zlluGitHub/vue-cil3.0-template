@@ -1,6 +1,6 @@
 <template>
   <section>
-    Section
+    body
   </section>
 </template>
 

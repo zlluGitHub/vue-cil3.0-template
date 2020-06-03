@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+import './assets/style/gloable.scss'
 import 'font-awesome/css/font-awesome.css'
 
 //引入 iview
