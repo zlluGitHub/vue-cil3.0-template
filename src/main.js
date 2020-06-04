@@ -1,21 +1,23 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import './assets/style/gloable.scss'
-import 'font-awesome/css/font-awesome.css'
-
 //引入 iview
 import iView from 'view-design';
 import 'view-design/dist/styles/iview.css';
 Vue.use(iView);
 
 import './assets/style/theme_1.scss'
+
 // 引入echarts
-// import echarts from 'echarts'
-// Vue.prototype.$echarts = echarts;
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts;
+
+import './assets/style/gloable.scss'
+import 'font-awesome/css/font-awesome.css'
 
 import event from './utils/event'
 Vue.prototype.$event = event
+
 
 //引入axios
 import axios from 'axios'
