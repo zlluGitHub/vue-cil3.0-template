@@ -1,8 +1,35 @@
-ul,ol{
+body {
+    background-color: #f7f7f7;
+    font-size: 14px;
+}
+ul,
+ol {
     list-style: none;
 }
-.show-enter-active{
-   transition:all 0.25s ease-in;
+section {
+    margin: 16px;
+}
+
+.card {
+    border-radius: 4px;
+    background-color: #fff;
+    .card-header {
+        color: #595959;
+        // height: 42px;
+        // line-height: 42px;
+        padding: 12px 20px;
+        border-bottom: 1px solid #f6f6f6;
+        border-radius: 2px 2px 0 0;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .card-body {
+        padding: 5px;
+    }
+}
+
+.show-enter-active {
+    transition: all 0.25s ease-in;
 }
 .show-enter,
 .show-leave-to {
@@ -11,19 +38,19 @@ ul,ol{
     margin-top: -6px;
 }
 .show-enter-to,
-.show-leave{
+.show-leave {
     opacity: 1;
     /* transform: scale(1); */
-    margin-top:0px;
+    margin-top: 0px;
 }
 .hidden-enter,
 .hidden-leave-active {
     /* transform: scale(0.9); */
-    transition:all 0.25s ease-in;
+    transition: all 0.25s ease-in;
     opacity: 0;
 }
 .hidden-enter-active,
-.hidden-leave{
+.hidden-leave {
     opacity: 1;
     /* transform: scale(1); */
 }

@@ -30,17 +30,26 @@ export default {
       style: {
         height: "auto"
       },
-      width: "230px"
+      width: "250px"
     };
   },
-  // created() {
-  //   console.log(size);
-  // },
+  created() {
+    //监听窗口变化 自适应（ 根据需求自行添加 ）
+    // window.addEventListener("resize", () => {
+    //   this.setSize();
+    // });
+  },
   mounted() {
-    let offsetHeight = document.querySelector("header").offsetHeight;
-    let tagsoffsetHeight = document.querySelector(".tags-nav").offsetHeight;
-    if (offsetHeight) {
-      this.style.height = size.PageH - offsetHeight - tagsoffsetHeight + "px";
+    this.setSize();
+  },
+  methods: {
+    setSize() {
+      let offsetHeight = document.querySelector("header").offsetHeight;
+      let tagsoffsetHeight = document.querySelector(".tags-nav").offsetHeight;
+      if (offsetHeight) {
+        this.style.height =
+          size.PageH - offsetHeight - tagsoffsetHeight - 16 + "px";
+      }
     }
   }
 };

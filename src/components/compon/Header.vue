@@ -6,11 +6,15 @@
         <h1>前端模板</h1>
       </div>
       <div class="warp">
-        <Icon
-          @click="collapsedSider"
-          :class="rotateIcon"
-          type="md-menu"
-        ></Icon>
+        <Icon @click="collapsedSider" :class="rotateIcon" type="md-menu"></Icon>
+        <Breadcrumb>
+          <BreadcrumbItem to="/">
+            <Icon type="ios-home-outline"></Icon>首页
+          </BreadcrumbItem>
+          <BreadcrumbItem to="/components/breadcrumb">
+            <Icon type="logo-buffer"></Icon>控制台
+          </BreadcrumbItem>
+        </Breadcrumb>
       </div>
     </div>
     <ul class="right">
@@ -63,9 +67,7 @@ export default {
     }
   },
   props: ["width"],
-  mounted(){
-
-  },
+  mounted() {},
   methods: {
     collapsedSider() {
       this.isCollapsed = !this.isCollapsed;
@@ -80,7 +82,7 @@ export default {
 header {
   display: flex;
   justify-content: space-between;
-  // background: #242f42;
+  background: #fff;
   // color: #fff;
   // box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
@@ -91,9 +93,7 @@ header {
       padding: 8px 15px;
       padding-top: 12px;
       transition: width 0.2s ease-in-out;
-      // align-items: center;
-      // border-bottom: 1px solid rgba(255, 255, 255, 0.075);
-      background: #515a6e;
+      background: #001529;
       img {
         width: 28px;
         height: 28px;
@@ -109,7 +109,7 @@ header {
         color: #fff;
       }
     }
-    .warp{
+    .warp {
       display: flex;
       align-items: center;
     }

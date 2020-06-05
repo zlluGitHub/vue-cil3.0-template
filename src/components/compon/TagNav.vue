@@ -9,11 +9,11 @@
     </div>
     <div class="scroll-outer">
       <div class="scroll-body">
-        <div class="ivu-tag ivu-tag-dot">
+        <div class="ivu-tag ivu-tag-dot ivu-tag-primary">
           <span class="ivu-tag-dot-inner"></span>
           <span class="ivu-tag-text">首页</span>
         </div>
-        <div class="ivu-tag ivu-tag-primary ivu-tag-dot">
+        <div class="ivu-tag ivu-tag-dot">
           <span class="ivu-tag-dot-inner"></span>
           <span class="ivu-tag-text">QQ群</span>
           <i class="ivu-icon ivu-icon-ios-close"></i>
@@ -35,11 +35,9 @@
         </span>
 
         <DropdownMenu slot="list">
-          <DropdownItem>驴打滚</DropdownItem>
-          <DropdownItem>炸酱面</DropdownItem>
-          <DropdownItem>豆汁儿</DropdownItem>
-          <DropdownItem>冰糖葫芦</DropdownItem>
-          <DropdownItem>北京烤鸭</DropdownItem>
+          <DropdownItem>关闭当前标签</DropdownItem>
+          <DropdownItem>关闭其他标签</DropdownItem>
+          <DropdownItem>关闭所有标签</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     </div>
@@ -60,6 +58,7 @@ export default {
   justify-content: space-between;
   border-top: 1px solid #f0f0f0;
   border-bottom: 1px solid #f0f0f0;
+   background: #fff;
   .scroll-outer {
     flex-grow: 1;
     box-shadow: inset 0 0 3px 1px hsla(0, 0%, 39.2%, 0.1);
@@ -72,6 +71,11 @@ export default {
   .right-btn {
     display: flex;
     border: 1px solid #f0f0f0;
+    /deep/ .ivu-dropdown{
+       display: flex;
+        align-items: center;
+        position: relative;
+    }
     /deep/ .ivu-dropdown-rel{
         display: flex;
         align-items: center;
@@ -83,6 +87,10 @@ export default {
         cursor: pointer;
     }
   }
-  
+  /deep/ .ivu-select-dropdown{
+    top: 36px !important;
+    left: initial !important;
+    right: 5px;
+  }
 }
 </style>
