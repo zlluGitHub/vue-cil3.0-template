@@ -39,7 +39,7 @@ module.exports = {
     config.optimization.splitChunks({
       chunks: 'all'
     })
-    
+
     // 通过 chainWebpack 调整图片的大小限制，我们将图片大小限制设置为 6kb，低于6kb的图片全部被内联，高于6kb的图片会放在单独的img文件夹中。
     const imagesRule = config.module.rule("images")
     imagesRule
@@ -47,7 +47,19 @@ module.exports = {
       .loader('url-loader')
       .tap(options => Object.assign(options, { limit: 6144 }))
   },
-
+  css: {
+    loaderOptions: {
+      css: {},
+      postcss: {
+        plugins: [
+          require('postcss-px2rem')({ 
+            // remUnit: 37.5
+            remUnit: 192
+          })
+        ]
+      }
+    }
+  },
   // chainWebpack: config => {
   //   // ie报错无效字符 添加该配置项 解决该问题
   //   config.module

@@ -1,13 +1,11 @@
 <template>
   <div class="main">
     <Header :width="width"></Header>
-    <div class="warp">
+    <div class="warp" :style="style">
       <Sidebar :width="width"></Sidebar>
       <div class="content-right">
         <TagNav></TagNav>
-        <div :style="style">
-          <router-view></router-view>
-        </div>
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -35,21 +33,18 @@ export default {
   },
   created() {
     //监听窗口变化 自适应（ 根据需求自行添加 ）
-    // window.addEventListener("resize", () => {
-    //   this.setSize();
-    // });
+    window.addEventListener("resize", () => {
+      this.setSize();
+    });
   },
   mounted() {
     this.setSize();
   },
   methods: {
     setSize() {
-      let offsetHeight = document.querySelector("header").offsetHeight;
-      let tagsoffsetHeight = document.querySelector(".tags-nav").offsetHeight;
-      if (offsetHeight) {
-        this.style.height =
-          size.PageH - offsetHeight - tagsoffsetHeight - 16 + "px";
-      }
+      let headerHeight = document.querySelector("header").offsetHeight;
+      let bodyHeight = document.querySelector("body").offsetHeight;
+      this.style.height = bodyHeight - headerHeight + "px";
     }
   }
 };
@@ -57,6 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 .main {
+  height: 100%;
   .warp {
     display: flex;
     .content-right {

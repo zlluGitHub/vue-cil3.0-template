@@ -32,6 +32,8 @@ Vue.prototype.$qs = qs           //全局注册，使用方法为:this.$qs
 // import mock from './mock'
 // Vue.prototype.$mock = mock
 
+import './utils/flexible' //rem 转换
+
 Vue.config.productionTip = false
 
 //实例化 store

@@ -1,5 +1,5 @@
 # vue-cil3.0 项目模板
-
+支持pc端自适应。
 ### 项目初始化
 ```
 npm install
@@ -36,6 +36,7 @@ npm run lint
     "echarts-liquidfill": "^2.0.6",
     "font-awesome": "^4.7.0",
     "mockjs": "^1.1.0",
+    "postcss-px2rem": "^0.3.0",
     "view-design": "^4.0.2",
     "vue": "^2.6.11",
     "vue-router": "^3.1.3",
@@ -49,9 +50,10 @@ npm run lint
     "compression-webpack-plugin": "^3.1.0",
     "cross-env": "^6.0.3",
     "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "lib-flexible": "^0.3.2",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
-    "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11",
     "webpack-bundle-analyzer": "^3.6.0"
   }
