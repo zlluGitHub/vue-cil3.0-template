@@ -22,7 +22,20 @@ Vue.prototype.$event = event
 //引入axios
 import axios from 'axios'
 import qs from 'qs'
-// axios.defaults.withCredentials = true;//让ajax携带cookie
+// axios.defaults.withCredentials = true; //让ajax携带cookie
+// axios.interceptors.request.use(
+//   config => {
+//     // 这里的config包含每次请求的内容
+//     let token = store.state.variable.token;
+//     if (token) {
+//       config.headers.Authorization = `Bearer ${token}`;
+//     }
+//     return config;
+//   },
+//   err => {
+//     return Promise.reject(err);
+//   }
+// );
 axios.defaults.baseURL = process.env.VUE_APP_URL;
 Vue.prototype.$url = process.env.VUE_APP_URL;
 Vue.prototype.$axios = axios    //全局注册，使用方法为:this.$axios
