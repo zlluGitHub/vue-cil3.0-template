@@ -1,30 +1,29 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
-  // mode: 'history',
-  // mode: 'hash', //默认 有#号
-  routes: [
-   
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import('../components/pages/login')
-    },
-    {
-      path: '/',
-      name: 'main',
-      component: () => import('../components/Main.vue'),
-      redirect: '/',//设置默认指向的路径
-      children: [ //这里就是二级路由的配置
-        {
-          path: '/',
-          name: 'index',
-          component: () => import('../components/pages/index')
-        }
-      ]
-    },
-  ]
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  }
+]
+
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
 })
+
+export default router
