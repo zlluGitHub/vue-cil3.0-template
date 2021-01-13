@@ -4,7 +4,7 @@
       <li
         v-for="(node, i) in asideData"
         :key="node.type + 'key' + i"
-        @mousedown="handlerMousedown($event, node.type + '-node-' + i)"
+        @mousedown="handlerMousedown($event, node, i)"
       >
         <div class="menu-item" :id="node.type + '-node-' + i">
           开始
@@ -25,15 +25,15 @@ export default {
       nodePosition: {},
       asideData: [
         {
-          nodeName: "scsds",
+          name: "scsds",
           type: "adsd",
         },
         {
-          nodeName: "scsds",
+          name: "scsds",
           type: "adsd",
         },
         {
-          nodeName: "scsds",
+          name: "scsds",
           type: "adsd",
         },
       ],
@@ -52,6 +52,7 @@ export default {
     };
     document.querySelector("#zll-index").onmouseup = (e) => {
       let event = e || window.event || event;
+      this.$store.commit("setNewNode", { state: false });
       if (this.copyNode) {
         this.copyNode.remove();
         this.copyNode = null;
@@ -59,11 +60,11 @@ export default {
     };
   },
   methods: {
-    handlerMousedown(e, id) {
+    handlerMousedown(e, item, i) {
       let event = e || window.event || event;
       let offsetY = 0;
-
-      let node = document.querySelector("#" + id); //复制节点
+      this.$store.commit("setNewNode", { state: true, node: item });
+      let node = document.querySelector("#" + item.type + "-node-" + i);
       this.nodePosition = {
         offsetX: event.x - node.offsetLeft,
         offsetY: event.y - node.offsetTop,

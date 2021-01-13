@@ -1,5 +1,5 @@
 <template>
-  <div :class="['node-item', shape]">
+  <div :class="['node-item']">
     <slot></slot>
     <!-- <div class="paint-box">
       <div class="paint" :id="'io' + paintId">a</div>
@@ -9,12 +9,6 @@
 
 <script>
 import jsplumb from "jsplumb";
-import {
-  jsPlumbConfig,
-  flowAnchors,
-  flowAnchor,
-  flowData,
-} from "@/config/flow.config.js";
 export default {
   name: "FlowNode",
   data() {
@@ -23,101 +17,25 @@ export default {
     };
   },
 
-  props: ["shape", "node"],
-  // watch: {
-  //   isSelect: {
-  //     // deep: true
-  //     immediate: true,
-  //     handler(val) {
-  //       console.log(val);
-  //       this.active = val;
-  //     },
-  //   },
-  // },
+  props: ["node"],
   mounted() {
-    // console.log(this.node);
-    let { type } = this.$store.state.flowMenuObj;
-    console.log(type);
+    console.log("node");
     this.$nextTick(() => {
-      // if (this.node.handleType === "connection") {
-      let config = { ...jsPlumbConfig, ...{ anchor: flowAnchor } };
-      // jsPlumb.unmakeEverySource();
-      // jsPlumb.unmakeEveryTarget();
-      // jsPlumb.makeSource(this.node.id, config);
-      // jsPlumb.makeTarget(this.node.id, config);
-
-      jsPlumb.draggable(this.node.id)
-      //   jsPlumb.stopDrag(node.id);
-      //   jsPlumb.unbindDraggable(node.id);
-      //   console.log(jsPlumb.isAlreadyDraggable(node.id));
-      // } else if (type === "drag-drop") {
-      // jsPlumb.draggable(this.node.id, {
-      //   containment: "parent",
-      //   handle: () => {
-      //     console.log(type);
-      //     if (this.node.handleType === "drag-drop") {
-      //       return true;
-      //     }
-      //     return false;
-      //   },
-      //   // grid: true,
-      //   drag: function (e) {
-      //     console.log("sds1");
-      //     // if (flowConfig.defaultStyle.isOpenAuxiliaryLine) {
-      //     //   that.$emit("alignForLine", e);
-      //     // }
-      //   },
-      //   stop: function (e) {
-      //     console.log("sds2");
-      //     // that.node.x = e.pos[0];
-      //     // that.node.y = e.pos[1];
-      //     // if (that.currentSelectGroup.length > 1) {
-      //     //   that.$emit("updateNodePos");
-      //     // }
-      //     // that.$emit("hideAlignLine");
-      //   },
-      // });
-      // }
-      // flowAnchors.forEach((anchor) => {
-      //   jsPlumb.addEndpoint(node.id, { anchor }, jsPlumbConfig);
-      // });
+      jsPlumb.draggable(this.node.id);
     });
-    // this.$nextTick(() => {
-    //   jsPlumb.makeSource("io" + this.paintId, jsPlumbConfig);
-    //   jsPlumb.makeTarget("io" + this.paintId, jsPlumbConfig);
-    // });
   },
-  methods: {
-    // mousedownHandler(ev) {
-    //   document.querySelectorAll(".node-item").forEach((ele) => {
-    //     ele.classList.remove("active");
-    //   });
-    //   let node = this.$refs.nodeItem;
-    //   node.classList.add("active");
-    //   let oevent = ev || event;
-    //   let distanceX = oevent.clientX - node.offsetLeft;
-    //   let distanceY = oevent.clientY - node.offsetTop;
-    //   //设置样式
-    //   node.style.cursor = "move";
-    //   document.onmousemove = (ev) => {
-    //     let oevent = ev || event;
-    //     node.style.left = oevent.clientX - distanceX + "px";
-    //     node.style.top = oevent.clientY - distanceY + "px";
-    //   };
-    //   document.onmouseup = () => {
-    //     document.onmousemove = null;
-    //     document.onmouseup = null;
-    //     node.style.cursor = null;
-    //   };
-    // },
+  methods: {},
+  beforeDestroy() {
+    // jsPlumb.deleteEveryEndpoint();
+    // jsPlumb.deleteEveryConnection();
+    // jsPlumb.unmakeEverySource();
+    // jsPlumb.unmakeEveryTarget();
+    // jsPlumb.remove(this.node.id);
   },
 };
 </script>
 
 <style scoped lang="scss">
-// .square,.rectangle{
-
-// }
 .circular {
   border-radius: 100%;
 }

@@ -75,21 +75,21 @@ export const jsPlumbConfig = {
 				location: 1,
 			},
 		],
-		[
-			"Label",
-			{
-				label: "dfdf",
-				cssClass: "",
-				labelStyle: {
-					color: "red",
-				},
-				events: {
-					click: function (labelOverlay, originalEvent) {
-						console.log("点击了label");
-					},
-				},
-			},
-		],
+		// [
+		// 	"Label",
+		// 	{
+		// 		label: "dfdf",
+		// 		cssClass: "",
+		// 		labelStyle: {
+		// 			color: "red",
+		// 		},
+		// 		events: {
+		// 			click: function (labelOverlay, originalEvent) {
+		// 				console.log("点击了label");
+		// 			},
+		// 		},
+		// 	},
+		// ],
 	],
 }
 

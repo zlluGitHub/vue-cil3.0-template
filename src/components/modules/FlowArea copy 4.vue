@@ -83,10 +83,10 @@ export default {
     },
     initFlowCanvas() {
       let { nodes, links } = this.$store.state.flowData;
-      // console.log(links, "qqqqqqqqqqqq");
-      // console.log(nodes, "wwwwwwwwww");
+      // console.log(links);
+      // console.log(nodes);
       jsPlumb.ready(() => {
-        jsPlumb.deleteEveryEndpoint();
+        // jsPlumb.deleteEveryEndpoint();
         // jsPlumb.deleteEveryConnection();
         // jsPlumb.unmakeEverySource();
         // jsPlumb.unmakeEveryTarget();
@@ -134,7 +134,6 @@ export default {
             this.addConnection(conn);
           });
           // jsPlumb.bind("beforeDrop", function (conn, e) {
-          //   console.log("sdsddsf");
           //   return true;
           //   //   // let sourceId = info.sourceId;
           //   //   // let targetId = info.targetId;
@@ -168,14 +167,15 @@ export default {
     handlerNodeClick(e, node) {
       if (3 == e.which) {
         // alert("这 是左键单击事件");
+
         // let plumb = jsPlumb.remove(node.id);
         // if (plumb) {
         this.$store.commit("setFlowData", { method: "delete-node", node });
-        // let { nodes, links } = this.$store.state.flowData;
-        // console.log(links);
-        // console.log(nodes);
+        let { nodes, links } = this.$store.state.flowData;
+        console.log(links);
+        console.log(nodes);
         // console.log(this.$store.state.flowData.links);
-        this.initFlowCanvas();
+        // this.initFlowCanvas();
         // this.nodes.forEach((node) => {
         //   jsPlumb.remove(node.id);
         // });
@@ -192,16 +192,10 @@ export default {
       }
     },
     addConnection(conn) {
-      let isExist = this.$store.state.flowData.links.findIndex((item) => {
-        return item.sourceId === conn.sourceId && item.targetId === conn.targetId;
+      this.$store.commit("setFlowData", {
+        method: "add-link",
+        link: { id: getUUID(), sourceId: conn.sourceId, targetId: conn.targetId },
       });
-      if (isExist < 0) {
-        console.log(conn);
-        this.$store.commit("setFlowData", {
-          method: "add-link",
-          link: { id: getUUID(), sourceId: conn.sourceId, targetId: conn.targetId },
-        });
-      }
     },
     deleteConnection(conn) {
       let plumb = jsPlumb.deleteConnection(conn);
@@ -212,7 +206,6 @@ export default {
         });
       }
     },
-    // getAllConnections
     // nodeNameChange(e) {
     //   this.currentSelect.nodeName = e.target.value;
     // },

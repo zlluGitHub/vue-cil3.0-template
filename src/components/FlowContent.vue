@@ -63,11 +63,14 @@ export default {
   },
   mounted() {
     console.log(jsPlumb);
-    // jsPlumb.ready(function () {
-    //   jsPlumb.setContainer("diagramContainer");
-    //   // console.log(jsPlumb.setZoom(0.7));
-    //   // console.log(jsPlumbToolkit);
-    // });
+    let { offsetX, offsetY } = this.$store.state.flowData;
+    if (offsetX && offsetY) {
+      this.dragMove = {
+        top: offsetX,
+        left: offsetY,
+      };
+    }
+
     // this.$refs.flowArea.initFlowCanvas(flowData, newVal);
   },
   methods: {
@@ -166,8 +169,12 @@ export default {
       this.mousePosition = { x: offsetX, y: offsetY };
       let { downPosition, originalPosition, isDown, top, left } = this.dragMove;
       if (isDown) {
-        this.dragMove.top = originalPosition.top + (event.y - downPosition.y);
-        this.dragMove.left = originalPosition.left + (event.x - downPosition.x);
+        let top = originalPosition.top + (event.y - downPosition.y);
+        let left = originalPosition.left + (event.x - downPosition.x);
+        this.dragMove.top = top;
+        this.dragMove.left = left;
+        this.$store.commit("setFlowData", { offsetX: left, offsetY: top });
+          // this.$store.commit("setFlowData", { method: "add", node });
       }
     },
     // initJsPlumb() {
